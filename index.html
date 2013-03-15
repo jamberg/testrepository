@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css">
+			body {
+				font-family: Helvetica, Arial, sans-serif;
+				font-size:10px;
+				margin:0;
+			}
+
+			#content {
+				
+			}
+		</style>
+
+		    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
+		<script type="text/javascript">
+			function initialize() {
+				var latlng = new google.maps.LatLng(36.102400212404525, -79.50371637123456);
+				var settings = {
+					zoom: 16,
+					center: latlng,
+					mapTypeControl: true,
+					mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+					navigationControl: true,
+					navigationControlOptions: {style: google.maps.NavigationControlStyle.LARGE},
+					mapTypeId: google.maps.MapTypeId.ROADMAP};
+				var map = new google.maps.Map(document.getElementById("map_canvas"), settings);
+				var contentString = '<div id="content">'+
+					'<div id="siteNotice">'+
+					'</div>'+
+					
+					'</div>'+
+					'</div>';
+					
+//START PLACES QUERY
+/*
+					var elon = new google.maps.LatLng(36.102400212404525, -79.50371637123456);
+					 var request = {
+          location: elon,
+          radius: 500,
+          types: ['restaurant']
+        };
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+      
+*/
+
+//ADD CUSTOM MARKERS
+				var infowindowIM = new google.maps.InfoWindow({
+					content: contentString
+				});
+				
+				var companyImage = new google.maps.MarkerImage('images/logo.png',
+					new google.maps.Size(100,50),
+					new google.maps.Point(0,0),
+					new google.maps.Point(50,50)
+				);
+
+				var companyShadow = new google.maps.MarkerImage('images/logo_shadow.png',
+					new google.maps.Size(130,50),
+					new google.maps.Point(0,0),
+					new google.maps.Point(65, 50));
+
+				
+var companyPos = new google.maps.LatLng(36.110991, -79.508103);
+
+				var companyMarker = new google.maps.Marker({
+					position: companyPos,
+					map: map,
+					animation: google.maps.Animation.DROP,
+					icon: companyImage,
+					shadow: companyShadow,
+					title:"Alumni Field House",
+					zIndex: 3});
+
+				
+				var trainImage = new google.maps.MarkerImage('images/train.png',
+					new google.maps.Size(100,65),
+					new google.maps.Point(0,0),
+					new google.maps.Point(50,50)
+				);
+
+				var trainShadow = new google.maps.MarkerImage('images/train_shadow.png',
+					new google.maps.Size(130,50),
+					new google.maps.Point(0,0),
+					new google.maps.Point(60, 50)
+				);
+
+				var trainPos = new google.maps.LatLng(36.103326, -79.505450);
+
+				var trainMarker = new google.maps.Marker({
+					position: trainPos,
+					map: map,
+					icon: trainImage,
+					shadow: trainShadow,
+					title:"Alumni Gym",
+					zIndex: 2
+				});
+
+				var parkingImage = new google.maps.MarkerImage('images/track.png',
+					new google.maps.Size(130,65),
+					new google.maps.Point(0,0),
+					new google.maps.Point(50,50)
+				);
+
+				var parkingShadow = new google.maps.MarkerImage('images/track_shadow.png',
+					new google.maps.Size(70,50),
+					new google.maps.Point(0,0),
+					new google.maps.Point(60, 50)
+				);
+
+				var parkingPos = new google.maps.LatLng(36.110000,-79.506015);
+
+				var parkingMarker = new google.maps.Marker({
+					position: parkingPos,
+					map: map,
+					icon: parkingImage,
+					shadow: parkingShadow,
+					title:"Belk Track",
+					zIndex: 1
+				});
+					var softballImage = new google.maps.MarkerImage('images/softball.png',
+					new google.maps.Size(130,65),
+					new google.maps.Point(0,0),
+					new google.maps.Point(50,50)
+				);
+
+				var softballShadow = new google.maps.MarkerImage('images/softball_shadow.png',
+					new google.maps.Size(70,50),
+					new google.maps.Point(0,0),
+					new google.maps.Point(60, 50)
+				);
+
+				var softballPos = new google.maps.LatLng(36.101618, -79.498819);
+
+				var softballMarker = new google.maps.Marker({
+					position: softballPos,
+					map: map,
+					icon: softballImage,
+					shadow: softballShadow,
+					title:"Hunt Softball Park",
+					zIndex: 4
+				});
+				
+				var tennisImage = new google.maps.MarkerImage('images/tennis.png',
+					new google.maps.Size(130,65),
+					new google.maps.Point(0,0),
+					new google.maps.Point(50,50)
+				);
+
+				var tennisShadow = new google.maps.MarkerImage('images/tennis_shadow.png',
+					new google.maps.Size(70,50),
+					new google.maps.Point(0,0),
+					new google.maps.Point(60, 50)
+				);
+
+				var tennisPos = new google.maps.LatLng(
+36.102576,-79.500074);
+
+				var tennisMarker = new google.maps.Marker({
+					position: tennisPos,
+					map: map,
+					icon: tennisImage,
+					shadow: tennisShadow,
+					title:"Jimmy Powell Tennis Center",
+					zIndex: 4
+				});
+				
+					var footballImage = new google.maps.MarkerImage('images/football.png',
+					new google.maps.Size(130,65),
+					new google.maps.Point(0,0),
+					new google.maps.Point(50,50)
+				);
+
+				var footballShadow = new google.maps.MarkerImage('images/football_shadow.png',
+					new google.maps.Size(70,50),
+					new google.maps.Point(0,0),
+					new google.maps.Point(60, 50)
+				);
+
+				var footballPos = new google.maps.LatLng(
+36.110403,-79.507971);
+
+				var footballMarker = new google.maps.Marker({
+					position: footballPos,
+					map: map,
+					icon: footballImage,
+					shadow: footballShadow,
+					title:"Rhodes Stadium",
+					zIndex: 4
+				});
+				
+				var soccerImage = new google.maps.MarkerImage('images/soccer.png',
+					new google.maps.Size(130,65),
+					new google.maps.Point(0,0),
+					new google.maps.Point(50,50)
+				);
+
+				var soccerShadow = new google.maps.MarkerImage('images/soccer_shadow.png',
+					new google.maps.Size(70,50),
+					new google.maps.Point(0,0),
+					new google.maps.Point(60, 50)
+				);
+
+				var soccerPos = new google.maps.LatLng(
+36.108358,-79.506361);
+
+				var footballMarker = new google.maps.Marker({
+					position: soccerPos,
+					map: map,
+					icon: soccerImage,
+					shadow: soccerShadow,
+					title:"Rudd Field",
+					zIndex: 4
+				});
+	//END CUSTOM MARKERS			
+	
+	
+	//CONTINUE PLACES QUERY 			
+				 function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+//CONTROL MARKERS AND INFOWINDOWS
+  function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+//START GEOLOCATION
+
+
+ var watchID;
+        var geo;    // for the geolocation object
+        var map;    // for the google map object
+        var mapMarker;  // the google map marker object
+
+        // position options
+        var MAXIMUM_AGE = 7000; // miliseconds
+        var TIMEOUT = 7000;
+        var HIGHACCURACY = true;
+
+        function getGeoLocation() {
+            try {
+                if( !! navigator.geolocation ) return navigator.geolocation;
+                else return undefined;
+            } catch(e) {
+                return undefined;
+            }
+        }
+function show_map(position) {
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+            var latlng = new google.maps.LatLng(lat, lon);
+
+            
+            } 
+
+mapMarker = new google.maps.Marker({
+                    position: latlng,
+                    title:"You are here."
+                });
+                  mapMarker.setMap(map);
+//END GEOLOCATION
+
+//INITIALIZE MAP AND MARKER LISTENER
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+				google.maps.event.addListener(companyMarker, 'click', function() {
+					infowindowIM.open(map,companyMarker);
+				});
+			}
+		</script>
+	</head>
+	<body style="background-color: grey;" onload="initialize()">
+		<div id="map_canvas" style="margin: 0 auto; border: 2px solid black; width:800px; height:800px; margin-top: 60px;"></div>
+	</body>
+</html>
